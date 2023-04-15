@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('vista1', ['nombre' => 'juan']);
+// });
+
+
+if (View::exists('vista2')) {
+
+    Route::get('/', function () {
+        return view('vista2',);
+    });
+    
+}else{
+    Route::get('/', function () {
+        return 'la vista no existe';
+    });
+    
+}
+
+
+
+
+
 
 //ejmplo1
 Route::get('/texto', function () {
